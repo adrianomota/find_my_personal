@@ -10,7 +10,7 @@ defmodule FindMyPersonal.MixProject do
     [
       app: :find_my_personal,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.11.4",
       descriptopn: "Projeto para encontrar um profissional de educação físíca próximo a você",
       source_url: @github_url,
       homepage_url: @github_url,
