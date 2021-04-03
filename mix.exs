@@ -5,7 +5,7 @@ defmodule FindMyPersonal.MixProject do
   use Mix.Project
 
   @github_url "https://github.com/adrianomota/find_my_personal"
-
+  @home_page_url "https://findmypersonal.gigalixirapp.com"
   def project do
     [
       app: :find_my_personal,
@@ -13,7 +13,7 @@ defmodule FindMyPersonal.MixProject do
       elixir: "~> 1.11.4",
       descriptopn: "Projeto para encontrar um profissional de educação físíca próximo a você",
       source_url: @github_url,
-      homepage_url: @github_url,
+      homepage_url: @home_page_url,
       files: ~w(mix.exs lib LICENSE.md CHANGELOG.md),
       package: [
         maintainers: ["Adriano MOta"],
