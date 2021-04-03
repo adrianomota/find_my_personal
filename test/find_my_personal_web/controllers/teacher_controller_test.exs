@@ -1,4 +1,7 @@
 defmodule FindMyPersonalWeb.TeacherControllerTest do
+  @moduledoc """
+  TeacherControllerTest module
+  """
   use FindMyPersonalWeb.ConnCase
 
   alias FindMyPersonal.Teachers
@@ -18,7 +21,13 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     education_level: "some updated education_level",
     name: "some updated name"
   }
-  @invalid_attrs %{avatar_url: nil, birth_date: nil, class_typel: nil, education_level: nil, name: nil}
+  @invalid_attrs %{
+    avatar_url: nil,
+    birth_date: nil,
+    class_typel: nil,
+    education_level: nil,
+    name: nil
+  }
 
   def fixture(:teacher) do
     {:ok, teacher} = Teachers.create_teacher(@create_attrs)

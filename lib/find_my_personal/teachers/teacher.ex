@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.Teachers.Teacher do
+  @moduledoc """
+  Teacher module
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
