@@ -4,11 +4,28 @@ defmodule FindMyPersonal.MixProject do
   """
   use Mix.Project
 
+  @github_url "https://github.com/adrianomota/find_my_personal"
+
   def project do
     [
       app: :find_my_personal,
       version: "0.1.0",
       elixir: "~> 1.11",
+      descriptopn: "Projeto para encontrar um profissional de educação físíca próximo a você",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w(mix.exs lib LICENSE.md CHANGELOG.md),
+      package: [
+        maintainers: ["Adriano MOta"],
+        license: ["MIT"],
+        links: %{
+          "Github" => @github_url
+        }
+      ],
+      docs: [
+        main: "readme",
+        extras: ["Readme.md", "CHANGELOG.md"]
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
