@@ -1,4 +1,4 @@
-# FindMyPersonal
+# Find my personal [![Build Actions Status](https://github.com/adrianomota/find_my_personal/workflows/phoenix-master/badge.svg)](https://github.com/adrianomota/find_my_personal/actions) [![codecov](https://codecov.io/gh/adrianomota/find_my_personal/branch/master/graph/badge.svg?token=WR6THUC2HT)](https://codecov.io/gh/adrianomota/find_my_personal)
 
 To start your Phoenix server:
 
