@@ -60,7 +60,7 @@ jobs:
         codecov_curl_args: -s
         verbose: true # optional (default = false)
 
-Deploy:
+  Deploy:
     name: Deploy Gigalixir
     needs: build
     runs-on: ubuntu-latest
