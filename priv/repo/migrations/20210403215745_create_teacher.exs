@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.Repo.Migrations.CreateTeacher do
+  @moduledoc """
+  CreateTeacher module
+  """
   use Ecto.Migration
 
   def change do
