@@ -1,4 +1,4 @@
-defmodule FindMyPersonalWeb.TeacherControllerTest do
+defmodule FindMyPersonalWeb.Api.TeacherControllerTest do
   @moduledoc """
   TeacherControllerTest module
   """
@@ -40,17 +40,17 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
 
   describe "index" do
     test "lists all teacher", %{conn: conn} do
-      conn = get(conn, Routes.teacher_path(conn, :index))
+      conn = get(conn, "api/" <> Routes.teacher_path(conn, :index))
       assert json_response(conn, 200)["data"] == []
     end
   end
 
   describe "create teacher" do
     test "renders teacher when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.teacher_path(conn, :create), teacher: @create_attrs)
+      conn = post(conn, "api/" <> Routes.teacher_path(conn, :create), teacher: @create_attrs)
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
-      conn = get(conn, Routes.teacher_path(conn, :show, id))
+      conn = get(conn, "api/" <> Routes.teacher_path(conn, :show, id))
 
       assert %{
                "id" => id,
@@ -63,7 +63,7 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.teacher_path(conn, :create), teacher: @invalid_attrs)
+      conn = post(conn, "api/" <> Routes.teacher_path(conn, :create), teacher: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -72,10 +72,12 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     setup [:create_teacher]
 
     test "renders teacher when data is valid", %{conn: conn, teacher: %Teacher{id: id} = teacher} do
-      conn = put(conn, Routes.teacher_path(conn, :update, teacher), teacher: @update_attrs)
+      conn =
+        put(conn, "api/" <> Routes.teacher_path(conn, :update, teacher), teacher: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
-      conn = get(conn, Routes.teacher_path(conn, :show, id))
+      conn = get(conn, "api/" <> Routes.teacher_path(conn, :show, id))
 
       assert %{
                "id" => id,
@@ -88,7 +90,9 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, teacher: teacher} do
-      conn = put(conn, Routes.teacher_path(conn, :update, teacher), teacher: @invalid_attrs)
+      conn =
+        put(conn, "api/" <> Routes.teacher_path(conn, :update, teacher), teacher: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -97,11 +101,11 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     setup [:create_teacher]
 
     test "deletes chosen teacher", %{conn: conn, teacher: teacher} do
-      conn = delete(conn, Routes.teacher_path(conn, :delete, teacher))
+      conn = delete(conn, "api/" <> Routes.teacher_path(conn, :delete, teacher))
       assert response(conn, 204)
 
       assert_error_sent 404, fn ->
-        get(conn, Routes.teacher_path(conn, :show, teacher))
+        get(conn, "api/" <> Routes.teacher_path(conn, :show, teacher))
       end
     end
   end
