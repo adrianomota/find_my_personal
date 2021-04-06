@@ -9,6 +9,9 @@
 <%= url_input f, :avatar_url %>
 <%= error_tag f, :avatar_url %>
 
+<div>
+   <img src= :avatar_url alt="">
+</div>
 
 <%= label f, :name %>
 <%= text_input f, :name %>
