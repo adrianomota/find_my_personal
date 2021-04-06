@@ -17,7 +17,7 @@ defmodule FindMyPersonalWeb.Api.TeacherView do
       name: teacher.name,
       birth_date: teacher.birth_date,
       education_level: teacher.education_level,
-      class_typel: teacher.class_typel
+      class_type: teacher.class_type
     }
   end
 end

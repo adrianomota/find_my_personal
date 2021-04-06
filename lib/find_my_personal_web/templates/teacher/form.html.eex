@@ -27,9 +27,9 @@
 <%= error_tag f, :education_level %>
 
 
-<%= label f, :class_typel %>
-<%= text_input f, :class_typel %>
-<%= error_tag f, :class_typel %>
+<%= label f, :class_type %>
+<%= text_input f, :class_type %>
+<%= error_tag f, :class_type %>
 
 <div>
   <%= submit "Submit" %>
