@@ -1,7 +1,4 @@
 defmodule FindMyPersonal.MixProject do
-  @moduledoc """
-    Very useful module
-  """
   use Mix.Project
 
   @github_url "https://github.com/adrianomota/find_my_personal"

@@ -1,6 +1,5 @@
 defmodule FindMyPersonalWeb.Api.TeacherView do
   use FindMyPersonalWeb, :view
-  alias FindMyPersonalWeb.Api.TeacherView
 
   def render("index.json", %{teacher: teacher}) do
     %{data: render_many(teacher, __MODULE__, "teacher.json")}
