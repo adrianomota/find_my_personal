@@ -1,6 +1,6 @@
 FROM elixir:1.11.4-alpine AS build
 
-RUN apk add --no-cache build-base npm git python
+RUN apt-get upgrade && apt-get update --no-cache build-base npm git python
 
 WORKDIR /app
 
@@ -28,7 +28,7 @@ RUN mix do compile, release
 
 FROM alpine:3.9 AS app
 
-RUN apk add --no-cache openssl ncurses-libs
+RUN apt-get upgrade && apt-get update --no-cache build-base --no-cache openssl ncurses-libs
 
 
 WORKDIR /app
