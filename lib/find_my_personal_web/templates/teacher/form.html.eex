@@ -54,11 +54,11 @@
 
 
 <%= submit class: "waves-effect waves-light btn-large right blue" do%>
-<i class="material-icons right">send</i>Enviar
+<i class="material-icons right ">send</i>Enviar
 <% end %>
 
-<%= link  to: Routes.teacher_path(@conn, :index), class: "waves-effect waves-light red btn-large" do%>Voltar
-<i class="material-icons left">arrow_left</i>
+<%= link  to: Routes.teacher_path(@conn, :index), class: "waves-effect waves-light red btn-large deep-purple darken-3" do%>Voltar
+<i class="material-icons left ">arrow_left</i>
 <% end %>
 
 <% end %>
