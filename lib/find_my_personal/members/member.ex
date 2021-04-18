@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.Members.Member do
+  @moduledoc """
+  member module
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

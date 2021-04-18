@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.MembersTest do
+  @moduledoc """
+  MembersTest module
+  """
   use FindMyPersonal.DataCase
 
   alias FindMyPersonal.Members
@@ -6,8 +9,22 @@ defmodule FindMyPersonal.MembersTest do
   describe "members" do
     alias FindMyPersonal.Members.Member
 
-    @valid_attrs %{birth_date: ~D[2010-04-17], blood: "some blood", email: "some email", height: 42, name: "some name", weight: 42}
-    @update_attrs %{birth_date: ~D[2011-05-18], blood: "some updated blood", email: "some updated email", height: 43, name: "some updated name", weight: 43}
+    @valid_attrs %{
+      birth_date: ~D[2010-04-17],
+      blood: "some blood",
+      email: "some email",
+      height: 42,
+      name: "some name",
+      weight: 42
+    }
+    @update_attrs %{
+      birth_date: ~D[2011-05-18],
+      blood: "some updated blood",
+      email: "some updated email",
+      height: 43,
+      name: "some updated name",
+      weight: 43
+    }
     @invalid_attrs %{birth_date: nil, blood: nil, email: nil, height: nil, name: nil, weight: nil}
 
     def member_fixture(attrs \\ %{}) do

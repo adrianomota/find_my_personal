@@ -1,11 +1,32 @@
 defmodule FindMyPersonalWeb.TeacherControllerTest do
+  @moduledoc """
+  TeacherControllerTest module
+  """
   use FindMyPersonalWeb.ConnCase
 
   alias FindMyPersonal.Teachers
 
-  @create_attrs %{avatar_url: "some avatar_url", birth_date: ~D[2010-04-17], class_type: "some class_type", education_level: "some education_level", name: "some name"}
-  @update_attrs %{avatar_url: "some updated avatar_url", birth_date: ~D[2011-05-18], class_type: "some updated class_type", education_level: "some updated education_level", name: "some updated name"}
-  @invalid_attrs %{avatar_url: nil, birth_date: nil, class_type: nil, education_level: nil, name: nil}
+  @create_attrs %{
+    avatar_url: "some avatar_url",
+    birth_date: ~D[2010-04-17],
+    class_type: "some class_type",
+    education_level: "some education_level",
+    name: "some name"
+  }
+  @update_attrs %{
+    avatar_url: "some updated avatar_url",
+    birth_date: ~D[2011-05-18],
+    class_type: "some updated class_type",
+    education_level: "some updated education_level",
+    name: "some updated name"
+  }
+  @invalid_attrs %{
+    avatar_url: nil,
+    birth_date: nil,
+    class_type: nil,
+    education_level: nil,
+    name: nil
+  }
 
   def fixture(:teacher) do
     {:ok, teacher} = Teachers.create_teacher(@create_attrs)
@@ -75,6 +96,7 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
     test "deletes chosen teacher", %{conn: conn, teacher: teacher} do
       conn = delete(conn, Routes.teacher_path(conn, :delete, teacher))
       assert redirected_to(conn) == Routes.teacher_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.teacher_path(conn, :show, teacher))
       end
