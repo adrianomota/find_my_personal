@@ -36,14 +36,14 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
   describe "index" do
     test "lists all teachers", %{conn: conn} do
       conn = get(conn, Routes.teacher_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Teachers"
+      assert html_response(conn, 200) =~ "Instrutores"
     end
   end
 
   describe "new teacher" do
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.teacher_path(conn, :new))
-      assert html_response(conn, 200) =~ "New Teacher"
+      assert html_response(conn, 200) =~ "Novo instrutor"
     end
   end
 
@@ -55,12 +55,12 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
       assert redirected_to(conn) == Routes.teacher_path(conn, :show, id)
 
       conn = get(conn, Routes.teacher_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Teacher"
+      assert html_response(conn, 200) =~ "Instrutor"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post(conn, Routes.teacher_path(conn, :create), teacher: @invalid_attrs)
-      assert html_response(conn, 200) =~ "New Teacher"
+      assert html_response(conn, 200) =~ "Novo instrutor"
     end
   end
 
@@ -69,7 +69,7 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
 
     test "renders form for editing chosen teacher", %{conn: conn, teacher: teacher} do
       conn = get(conn, Routes.teacher_path(conn, :edit, teacher))
-      assert html_response(conn, 200) =~ "Edit Teacher"
+      assert html_response(conn, 200) =~ "Editar instrutor"
     end
   end
 
@@ -86,7 +86,7 @@ defmodule FindMyPersonalWeb.TeacherControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, teacher: teacher} do
       conn = put(conn, Routes.teacher_path(conn, :update, teacher), teacher: @invalid_attrs)
-      assert html_response(conn, 200) =~ "Edit Teacher"
+      assert html_response(conn, 200) =~ "Editar instrutor"
     end
   end
 
