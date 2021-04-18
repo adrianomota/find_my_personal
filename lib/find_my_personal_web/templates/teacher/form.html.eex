@@ -1,37 +1,64 @@
-<%= form_for @changeset, @action,  fn f -> %>
+<%= form_for @changeset, @action, fn f -> %>
 <%= if @changeset.action do %>
 <div class="alert alert-danger">
-  <p>Oops, something went wrig! Please check the rrors below</p>
+  <p>Oops, algo deu errado, verifique as informações abaixo</p>
 </div>
 <% end %>
 
-<%= label f, :avatar_url %>
-<%= url_input f, :avatar_url %>
-<%= error_tag f, :avatar_url %>
 
-<div>
-   <img src= :avatar_url alt="">
+<div class="row">
+  <div class="input-field col s12">
+    <%= url_input f, :avatar_url, class: "validate" %>
+    <%= label f, :avatar_url %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :avatar_url %></span>
+  </div>
 </div>
 
-<%= label f, :name %>
-<%= text_input f, :name %>
-<%= error_tag f, :name %>
 
-<%= label f, :birth_date %>
-<%= date_input f, :birth_date %>
-<%= error_tag f, :birth_date %>
-
-
-<%= label f, :education_level %>
-<%= select f, :education_level, ["Ensino Médio", "Ensino Superior", "Mestrado", "Doutorado"] %>
-<%= error_tag f, :education_level %>
-
-
-<%= label f, :class_type %>
-<%= text_input f, :class_type %>
-<%= error_tag f, :class_type %>
-
-<div>
-  <%= submit "Submit" %>
+<div class="row">
+  <div class="input-field col s12">
+    <%= text_input f, :name, class: "validate" %>
+    <%= label f, :name %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :name %></span>
+  </div>
 </div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <%= date_input f, :birth_date, class: "validate" %>
+    <%= label f, :birth_date %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :birth_date %></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <%= select f, :education_level,
+    ["Ensino médio", "Superior", "Mestrado", "Doutorado"],
+    prompt: "Escolha a Graduação" %>
+    <%= label f, :education_level %>
+    <span class="helper-text" data-error="wrong" data-success="right">
+      <%= error_tag f, :education_level %>
+    </span>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="input-field col s12">
+    <%= text_input f, :class_type, class: "validate"%>
+    <%= label f, :class_type %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :class_type %></span>
+  </div>
+</div>
+
+
+<%= submit class: "waves-effect waves-light btn-large right blue" do%>
+<i class="material-icons right">send</i>Enviar
+<% end %>
+
+<%= link  to: Routes.teacher_path(@conn, :index), class: "waves-effect waves-light red btn-large" do%>Voltar
+<i class="material-icons left">arrow_left</i>
+<% end %>
+
 <% end %>

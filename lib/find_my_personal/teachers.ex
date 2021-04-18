@@ -17,7 +17,7 @@ defmodule FindMyPersonal.Teachers do
       [%Teacher{}, ...]
 
   """
-  def list_teacher do
+  def list_teachers do
     Repo.all(Teacher)
   end
 
