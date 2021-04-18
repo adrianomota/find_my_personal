@@ -40,9 +40,9 @@ defmodule FindMyPersonal.TeachersTest do
       teacher
     end
 
-    test "list_teacher/0 returns all teacher" do
+    test "list_teachers/0 returns all teacher" do
       teacher = teacher_fixture()
-      assert Teachers.list_teacher() == [teacher]
+      assert Teachers.list_teachers() == [teacher]
     end
 
     test "get_teacher!/1 returns the teacher with given id" do

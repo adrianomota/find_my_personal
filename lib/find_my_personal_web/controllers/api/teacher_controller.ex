@@ -7,7 +7,7 @@ defmodule FindMyPersonalWeb.Api.TeacherController do
   action_fallback FindMyPersonalWeb.FallbackController
 
   def index(conn, _params) do
-    teacher = Teachers.list_teacher()
+    teacher = Teachers.list_teachers()
     render(conn, "index.json", teacher: teacher)
   end
 
