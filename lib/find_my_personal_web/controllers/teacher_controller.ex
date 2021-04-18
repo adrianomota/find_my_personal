@@ -5,14 +5,8 @@ defmodule FindMyPersonalWeb.TeacherController do
   alias FindMyPersonal.Teachers.Teacher
 
   def index(conn, _params) do
-    teachers = Teachers.list_teacher()
+    teachers = Teachers.list_teachers()
     render(conn, "index.html", teachers: teachers)
-  end
-
-  def show(conn, %{"id" => id}) do
-    teacher = Teachers.get_teacher!(id)
-
-    render(conn, "show.html", teacher: teacher)
   end
 
   def new(conn, _params) do
@@ -20,16 +14,21 @@ defmodule FindMyPersonalWeb.TeacherController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"teacher" => teacher}) do
-    case Teachers.create_teacher(teacher) do
-      {:lok, teacher} ->
+  def create(conn, %{"teacher" => teacher_params}) do
+    case Teachers.create_teacher(teacher_params) do
+      {:ok, teacher} ->
         conn
-        |> put_flash(:info, "Teacher cerated successofully")
+        |> put_flash(:info, "Teacher created successfully.")
         |> redirect(to: Routes.teacher_path(conn, :show, teacher))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  def show(conn, %{"id" => id}) do
+    teacher = Teachers.get_teacher!(id)
+    render(conn, "show.html", teacher: teacher)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -44,7 +43,7 @@ defmodule FindMyPersonalWeb.TeacherController do
     case Teachers.update_teacher(teacher, teacher_params) do
       {:ok, teacher} ->
         conn
-        |> put_flash(:info, "Teacher updated successfully")
+        |> put_flash(:info, "Teacher updated successfully.")
         |> redirect(to: Routes.teacher_path(conn, :show, teacher))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -54,11 +53,10 @@ defmodule FindMyPersonalWeb.TeacherController do
 
   def delete(conn, %{"id" => id}) do
     teacher = Teachers.get_teacher!(id)
-
     {:ok, _teacher} = Teachers.delete_teacher(teacher)
 
     conn
-    |> put_flash(:info, "Teacher deleted successfully")
+    |> put_flash(:info, "Teacher deleted successfully.")
     |> redirect(to: Routes.teacher_path(conn, :index))
   end
 end
